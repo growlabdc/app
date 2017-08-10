@@ -1,0 +1,7 @@
+rootProject.name = 'growlab'
+include ':react-native-push-notification'
+project(':react-native-push-notification').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-push-notification/android')
+include ':react-native-device-token'
+project(':react-native-device-token').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-device-token/android')
+
+include ':app'
