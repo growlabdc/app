@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import {
   ActivityIndicator,
   Alert,
-  StatusBar,
   StyleSheet,
   Text,
   TouchableHighlight,
@@ -81,71 +80,63 @@ export default class Control extends React.Component {
     }
 
     return (
-      <View style={{flex: 1}}>
-	<View style={{flex: 4, backgroundColor:'#39663C', justifyContent: 'center', alignItems: 'center'}}>
-	  <StatusBar translucent backgroundColor='#1CCE28' />	  
-	  <Text style={{color:'#ffffff'}}>GrowLab</Text>
+      <View style={styles.controlBody}>
+	<View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-around'}}>
+	  <TouchableHighlight
+	      style={[styles.button, this.state.light && styles.button_active]}
+	      onPress={(e) => this.toggle(e, 'light')}>
+	    <View>
+	      <Text style={[styles.button_text, this.state.light && styles.button_text_active]}>Light</Text>
+	    </View>
+	  </TouchableHighlight>
+	  <TouchableHighlight
+	      style={[styles.button, this.state.exhaust && styles.button_active]}
+	      onPress={(e) => this.toggle(e, 'exhaust')}>
+	    <View>
+	      <Text style={[styles.button_text, this.state.exhaust && styles.button_text_active]}>Exhaust</Text>
+	    </View>
+	  </TouchableHighlight>
+	  <TouchableHighlight
+	      style={[styles.button, this.state.ac && styles.button_active]}
+	      onPress={(e) => this.toggle(e, 'ac')}>
+	    <View>
+	      <Text style={[styles.button_text, this.state.ac && styles.button_text_active]}>AC</Text>
+	    </View>
+	  </TouchableHighlight>
 	</View>
-	<View style={styles.controlBody}>
-	  <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-around'}}>
-	    <TouchableHighlight
-style={[styles.button, this.state.light && styles.button_active]}
-onPress={(e) => this.toggle(e, 'light')}>
-	      <View>
-		<Text style={[styles.button_text, this.state.light && styles.button_text_active]}>Light</Text>
-	      </View>
-	    </TouchableHighlight>
-	    <TouchableHighlight
-style={[styles.button, this.state.exhaust && styles.button_active]}
-onPress={(e) => this.toggle(e, 'exhaust')}>
-	      <View>
-		<Text style={[styles.button_text, this.state.exhaust && styles.button_text_active]}>Exhaust</Text>
-	      </View>
-	    </TouchableHighlight>
-	    <TouchableHighlight
-style={[styles.button, this.state.ac && styles.button_active]}
-onPress={(e) => this.toggle(e, 'ac')}>
-	      <View>
-		<Text style={[styles.button_text, this.state.ac && styles.button_text_active]}>AC</Text>
-	      </View>
-	    </TouchableHighlight>
-	  </View>
-	  <View style={{flex: 1, flexDirection: 'row'}}>
-	    <TouchableHighlight
-style={[styles.button, this.state.grow_system_pumps && styles.button_active]}
-onPress={(e) => this.toggle(e, 'grow_system_pumps')}>
-	      <View>
-		<Text style={[styles.button_text, this.state.grow_system_pumps && styles.button_text_active]}>System Pumps</Text>
-	      </View>
-	    </TouchableHighlight>
-	  </View>
-	  <View style={{flex: 1, flexDirection: 'row'}}>
-	    <TouchableHighlight
-style={[styles.button, this.state.drain_valve && styles.button_active]}
-onPress={(e) => this.toggle(e, 'drain_valve')}>
-	      <View>
-		<Text style={[styles.button_text, this.state.drain_valve && styles.button_text_active]}>Drain Valve</Text>
-	      </View>
-	    </TouchableHighlight>
-	    <TouchableHighlight
-style={[styles.button, this.state.drain_pump && styles.button_active]}
-onPress={(e) => this.toggle(e, 'drain_pump')}>
-	      <View>
-		<Text style={[styles.button_text, this.state.drain_pump && styles.button_text_active]}>Drain Pump</Text>
-	      </View>
-	    </TouchableHighlight>
-	  </View>
-	  <View style={{flex: 1, flexDirection: 'row'}}>
-	    <TouchableHighlight
-style={[styles.button, this.state.fill_valve && styles.button_active]}
-onPress={(e) => this.toggle(e, 'fill_valve')}>
-	      <View>
-		<Text style={[styles.button_text, this.state.fill_valve && styles.button_text_active]}>Fill Valve</Text>
-	      </View>
-	    </TouchableHighlight>
-	  </View>
+	<View style={{flex: 1, flexDirection: 'row'}}>
+	  <TouchableHighlight
+	      style={[styles.button, this.state.grow_system_pumps && styles.button_active]}
+	      onPress={(e) => this.toggle(e, 'grow_system_pumps')}>
+	    <View>
+	      <Text style={[styles.button_text, this.state.grow_system_pumps && styles.button_text_active]}>System Pumps</Text>
+	    </View>
+	  </TouchableHighlight>
 	</View>
-	<View style={{flex: 1, backgroundColor:'#39663C', justifyContent: 'center', alignItems: 'center'}}>
+	<View style={{flex: 1, flexDirection: 'row'}}>
+	  <TouchableHighlight
+	      style={[styles.button, this.state.drain_valve && styles.button_active]}
+	      onPress={(e) => this.toggle(e, 'drain_valve')}>
+	    <View>
+	      <Text style={[styles.button_text, this.state.drain_valve && styles.button_text_active]}>Drain Valve</Text>
+	    </View>
+	  </TouchableHighlight>
+	  <TouchableHighlight
+	      style={[styles.button, this.state.drain_pump && styles.button_active]}
+	      onPress={(e) => this.toggle(e, 'drain_pump')}>
+	    <View>
+	      <Text style={[styles.button_text, this.state.drain_pump && styles.button_text_active]}>Drain Pump</Text>
+	    </View>
+	  </TouchableHighlight>
+	</View>
+	<View style={{flex: 1, flexDirection: 'row'}}>
+	  <TouchableHighlight
+	      style={[styles.button, this.state.fill_valve && styles.button_active]}
+	      onPress={(e) => this.toggle(e, 'fill_valve')}>
+	    <View>
+	      <Text style={[styles.button_text, this.state.fill_valve && styles.button_text_active]}>Fill Valve</Text>
+	    </View>
+	  </TouchableHighlight>
 	</View>
       </View>
     );
